@@ -58,11 +58,11 @@ public class UI {
 		 jb=new JButton[row1][column1];
 		
 		
-		frame = new JFrame("ÉúÃüÓÎÏ·");
+		frame = new JFrame("ç”Ÿå‘½æ¸¸æˆ");
 		frame.setBounds(100, 100,(column1+1)*21,(row1+2)*22);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		frame.getContentPane().setSize(column1*20,(row1+1)*20);//ÆåÅÌ³¤¿í£ºcolumn*50,row*50
+		frame.getContentPane().setSize(column1*20,(row1+1)*20);//æ£‹ç›˜é•¿å®½ï¼šcolumn*50,row*50
 		frame.getContentPane().setBackground(Color.white);
 		
 		JPanel panel = new JPanel();
@@ -76,7 +76,7 @@ public class UI {
 		
 		panel_1.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("µü´ú");
+		JButton btnNewButton_1 = new JButton("è¿­ä»£");
 		time t=new time();
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -90,7 +90,7 @@ public class UI {
 		});
 		panel_1.add(btnNewButton_1);
 		
-		JButton btnNewButton_2 = new JButton("ÔİÍ£");
+		JButton btnNewButton_2 = new JButton("æš‚åœ");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -110,7 +110,7 @@ public class UI {
 	}
 	
 	
-	//Îª»îµÄÏ¸°û×Å°×É«¡¢ËÀµÄ×ÅºÚÉ«
+	//ä¸ºæ´»çš„ç»†èƒç€ç™½è‰²ã€æ­»çš„ç€é»‘è‰²
 	public void Draw_color(int row,int column) {
 		for(int i=0;i<row;i++) {
 			for(int j=0;j<column;j++) {
@@ -122,11 +122,11 @@ public class UI {
 				}
 			}
 		}
-		btnNewButton.setText("µÚ"+checkerboard.GetNowGeneration()+"´Îµü´ú");
+		btnNewButton.setText("ç¬¬"+checkerboard.GetNowGeneration()+"æ¬¡è¿­ä»£");
 	}
 	
 	
-//Ïß³Ì
+//çº¿ç¨‹
  class time extends Thread{
 	public void run() {
 		for(int i=1;i>0;i++)

@@ -1,12 +1,12 @@
-package ds;
+ï»¿package ds;
 
 public class CellStorage {
-	static int SIZE = 100; // ¶şÎ¬Êı×éÏÂ±ê·¶Î§ÊÇ[0, SIZE]
-	private Boolean[][] status = null; // Ã¿¸öµ¥Ôª¸ñµÄ´æ»î×´Ì¬
-	private int[][] neighbors = null; // Ã¿¸öµ¥Ôª¸ñµ±Ç°×´Ì¬µÄÁÚ¾Ó¸öÊı
+	static int SIZE = 100; // äºŒç»´æ•°ç»„ä¸‹æ ‡èŒƒå›´æ˜¯[0, SIZE]
+	private Boolean[][] status = null; // æ¯ä¸ªå•å…ƒæ ¼çš„å­˜æ´»çŠ¶æ€
+	private int[][] neighbors = null; // æ¯ä¸ªå•å…ƒæ ¼å½“å‰çŠ¶æ€çš„é‚»å±…ä¸ªæ•°
 	
 	CellStorage(){
-		// ³õÊ¼»¯
+		// åˆå§‹åŒ–
 		status = new Boolean[SIZE + 1][SIZE + 1];
 		neighbors = new int[SIZE +1][SIZE + 1];
 		for(int i=0; i<=SIZE; i++) {
@@ -38,7 +38,7 @@ public class CellStorage {
 			return false;
 		}
 		else { // cntNeighbor == 2
-			return status[row][col]; // ²»±ä
+			return status[row][col]; // ä¸å˜
 		}
 	}
 	
@@ -49,7 +49,7 @@ public class CellStorage {
 	
 	public void calcNeighbors() {
 		int row, col;
-		// ÔÚ×îÍâ²ãÄÚ²¿µÄËùÓĞµ¥Ôª¸ñ
+		// åœ¨æœ€å¤–å±‚å†…éƒ¨çš„æ‰€æœ‰å•å…ƒæ ¼
 		for(row = 1; row <= SIZE-1; row++) {
 			for(col = 1; col <= SIZE-1; col++) {
 				if(status[row-1][col-1] == true) neighbors[row][col]++;
@@ -62,55 +62,55 @@ public class CellStorage {
 				if(status[row+1][col+1] == true) neighbors[row][col]++;
 			}
 		}
-		// ÔÚÊ×ĞĞºÍ×îºóÒ»ĞĞ·Ç½ÇÂä´¦µÄµ¥Ôª¸ñ
+		// åœ¨é¦–è¡Œå’Œæœ€åä¸€è¡Œéè§’è½å¤„çš„å•å…ƒæ ¼
 		for(col = 1; col <= SIZE-1; col++) {
-			row = 0; // Ê×ĞĞ
+			row = 0; // é¦–è¡Œ
 			if(status[row][col-1] == true) neighbors[row][col]++;
 			if(status[row][col+1] == true) neighbors[row][col]++;
 			if(status[row+1][col-1] == true) neighbors[row][col]++;
 			if(status[row+1][col] == true) neighbors[row][col]++;
 			if(status[row+1][col+1] == true) neighbors[row][col]++;
-			row = SIZE; // ×îºóÒ»ĞĞ
+			row = SIZE; // æœ€åä¸€è¡Œ
 			if(status[row-1][col-1] == true) neighbors[row][col]++;
 			if(status[row-1][col] == true) neighbors[row][col]++;
 			if(status[row-1][col+1] == true) neighbors[row][col]++;
 			if(status[row][col-1] == true) neighbors[row][col]++;
 			if(status[row][col+1] == true) neighbors[row][col]++;
 		}
-		// ÔÚÊ×ÁĞºÍ×îºóÒ»ÁĞ·Ç½ÇÂä´¦µÄµ¥Ôª¸ñ
+		// åœ¨é¦–åˆ—å’Œæœ€åä¸€åˆ—éè§’è½å¤„çš„å•å…ƒæ ¼
 		for(row = 1; row <= SIZE-1; row++) {
-			col = 0; // Ê×ÁĞ
+			col = 0; // é¦–åˆ—
 			if(status[row-1][col] == true) neighbors[row][col]++;
 			if(status[row-1][col+1] == true) neighbors[row][col]++;
 			if(status[row][col+1] == true) neighbors[row][col]++;
 			if(status[row+1][col] == true) neighbors[row][col]++;
 			if(status[row+1][col+1] == true) neighbors[row][col]++;
-			col = SIZE; // ×îºóÒ»ÁĞ
+			col = SIZE; // æœ€åä¸€åˆ—
 			if(status[row-1][col-1] == true) neighbors[row][col]++;
 			if(status[row-1][col] == true) neighbors[row][col]++;
 			if(status[row][col-1] == true) neighbors[row][col]++;
 			if(status[row+1][col-1] == true) neighbors[row][col]++;
 			if(status[row+1][col] == true) neighbors[row][col]++;
 		}
-		// ×óÉÏ½Ç
+		// å·¦ä¸Šè§’
 		row = 0;
 		col = 0;
 		if(status[row][col+1] == true) neighbors[row][col]++;
 		if(status[row+1][col] == true) neighbors[row][col]++;
 		if(status[row+1][col+1] == true) neighbors[row][col]++;
-		// ÓÒÉÏ½Ç
+		// å³ä¸Šè§’
 		row = 0;
 		col = SIZE;
 		if(status[row][col-1] == true) neighbors[row][col]++;
 		if(status[row+1][col-1] == true) neighbors[row][col]++;
 		if(status[row+1][col] == true) neighbors[row][col]++;
-		// ×óÏÂ½Ç
+		// å·¦ä¸‹è§’
 		row = SIZE;
 		col = 0;
 		if(status[row-1][col] == true) neighbors[row][col]++;
 		if(status[row-1][col+1] == true) neighbors[row][col]++;
 		if(status[row][col+1] == true) neighbors[row][col]++;
-		// ÓÒÏÂ½Ç
+		// å³ä¸‹è§’
 		row = SIZE;
 		col = SIZE;
 		if(status[row-1][col-1] == true) neighbors[row][col]++;
@@ -123,10 +123,10 @@ public class CellStorage {
 		for(row = 0; row <= SIZE; row++) {
 			for(col = 0; col <= SIZE; col++) {
 				if(neighbors[row][col] == 3) 
-					status[row][col] = true; // »î
+					status[row][col] = true; // æ´»
 				else if(neighbors[row][col] != 2)
-					status[row][col] = false; //ËÀÍö
-				// else neighbors[row][col] == 2 ²»±ä
+					status[row][col] = false; //æ­»äº¡
+				// else neighbors[row][col] == 2 ä¸å˜
 			}
 		}
 	}

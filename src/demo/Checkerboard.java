@@ -1,12 +1,12 @@
-package demo;
+ï»¿package demo;
 
 import java.util.Random;
 
 public class Checkerboard {
 	private int row;
 	private int column;
-	private int nowGeneration;//Ï¸°ûÑÜÉúµÄ´úÊı
-	private int [][] gird; //ÎÒÃÇÒÔ0´ú±íËÀÏ¸°û£¬1´ú±í»îÏ¸°û
+	private int nowGeneration;//ç»†èƒè¡ç”Ÿçš„ä»£æ•°
+	private int [][] gird; //æˆ‘ä»¬ä»¥0ä»£è¡¨æ­»ç»†èƒï¼Œ1ä»£è¡¨æ´»ç»†èƒ
 	
 	Checkerboard(int row1,int column1){
 		row=row1;
@@ -15,7 +15,7 @@ public class Checkerboard {
 		initi();
 	}
 
-	//ÆåÅÌ×´Ì¬µÄ³õÊ¼»¯£¬»ñµÃµÚÒ»´úÏ¸°û
+	//æ£‹ç›˜çŠ¶æ€çš„åˆå§‹åŒ–ï¼Œè·å¾—ç¬¬ä¸€ä»£ç»†èƒ
 	public void initi() {
 		nowGeneration=1;
 		for(int i=0;i<row+2;i++) {
@@ -31,7 +31,7 @@ public class Checkerboard {
 		}
 	}
 	
-	//Ï¸°û·±ÑÜ¹ı³Ì
+	//ç»†èƒç¹è¡è¿‡ç¨‹
 	public void Transfer(){
 		int gird1 [][] =new int[row][column];
 		gird1=gird;
@@ -52,7 +52,7 @@ public class Checkerboard {
 		nowGeneration++;
 	}
 	
-	//»ñµÃÒ»¸öÏ¸°ûÖÜÎ§µÄ»îÏ¸°ûÊıÁ¿
+	//è·å¾—ä¸€ä¸ªç»†èƒå‘¨å›´çš„æ´»ç»†èƒæ•°é‡
 	public int GetNeighborCount(int row1,int column1) {
 		int count=0;
 		for(int i=row1-1;i<row1+2;i++) {
