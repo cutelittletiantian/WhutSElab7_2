@@ -1,12 +1,12 @@
 ﻿package ds;
 
 public class CellStorage {
-	static int SIZE = 100; // 二维数组下标范围是[0, SIZE]
+	private int SIZE = 100; // 二维数组下标范围是[0, SIZE]
 	private Boolean[][] status = null; // 每个单元格的存活状态
 	private int[][] neighbors = null; // 每个单元格当前状态的邻居个数
 	
+	// 默认初始化构造函数
 	CellStorage(){
-		// 初始化
 		status = new Boolean[SIZE + 1][SIZE + 1];
 		neighbors = new int[SIZE +1][SIZE + 1];
 		for(int i=0; i<=SIZE; i++) {
@@ -17,19 +17,41 @@ public class CellStorage {
 		}
 	}
 	
-	public Boolean[][] getWorld(){
+	// 初始化构造函数
+	CellStorage(Boolean[][] _status){
+		status = _status;
+		SIZE = _status[0].length + 1;
+	}
+	
+	// 初始化
+	public void init(Boolean[][] _status){
+		status = _status;
+		SIZE = _status[0].length + 1;
+	}
+	
+	
+	public Boolean[][] getStatus(){
 		return status;
+	}
+	
+	public void setStatus(Boolean[][] _status) {
+		status = _status;
 	}
 	
 	public int getSize() {
 		return SIZE;
 	}
 	
+	public void setSize(int _size) {
+		SIZE = _size;
+	}
+	
 	public int[][] getNeighbor(){
 		return neighbors;
 	}
 	
-	public boolean nextStatus(int row, int col) {
+	// 每个单元格的下一状态
+	public boolean nextUnit(int row, int col) {
 		int cntNeighbor = neighbors[row][col];
 		if(cntNeighbor == 3) {
 			return true;
@@ -42,11 +64,13 @@ public class CellStorage {
 		}
 	}
 	
+	// 更新当前状态
 	public void update(CellStorage tempCells) {
-		status = tempCells.getWorld();
+		status = tempCells.getStatus();
 		neighbors = tempCells.getNeighbor();
 	}
 	
+	// 计算每一个单元格邻近活细胞数
 	public void calcNeighbors() {
 		int row, col;
 		// 在最外层内部的所有单元格
@@ -118,6 +142,7 @@ public class CellStorage {
 		if(status[row][col-1] == true) neighbors[row][col]++;
 	}
 	
+	// 计算整体下一个状态
 	public void nextStatus() {
 		int row, col;
 		for(row = 0; row <= SIZE; row++) {
@@ -129,5 +154,10 @@ public class CellStorage {
 				// else neighbors[row][col] == 2 不变
 			}
 		}
+	}
+	
+	// 展示世界
+	public void Display() {
+		
 	}
 }
