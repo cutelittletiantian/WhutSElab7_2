@@ -56,7 +56,7 @@ public class MapTest {
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
 		// 清空原有测试数据
-		for(int i = 0; i < map.getLen(); i++) {
+        for(int i = 0; i < map.getLen(); i++) {
 			for(int j = 0; j < map.getLen(); j++) {
 				map.set(i, j, 0);
 			}

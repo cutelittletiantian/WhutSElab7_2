@@ -26,11 +26,11 @@ public class Map {
                 data[i][j] = Math.random() > model ? 1 : 0;
             }
         }
-        for(int i = 0; i < getLen(); i++) {
-			for(int j = 0; j < getLen(); j++) {
-				set(i, j, 0);
-			}
-		}
+//        for(int i = 0; i < getLen(); i++) {
+//			for(int j = 0; j < getLen(); j++) {
+//				set(i, j, 0);
+//			}
+//		}
         
 //		以下为测试用代码，闲着没事时候要注释掉
 //		

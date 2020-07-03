@@ -18,7 +18,7 @@ public class UI {
         frame.setLocationRelativeTo(null);
         frame.setResizable(true);
         frame.setLayout(new GridLayout());
-        GridLayout gridLayout = new GridLayout(m.getLen(),m.getLen());
+        GridLayout gridLayout = new GridLayout(m.getLen(), m.getLen());
         btnCell = new JButton[m.getLen()][m.getLen()];
 
         panel.setLayout(gridLayout);
